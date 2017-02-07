@@ -30,7 +30,7 @@ def ABC(priorSampler, likelihoodSimulator, summaryStatistics, epsilon, data, n):
             accept = 1
         else: accept = 0
             
-        output_dict = {'accept': accept, 'z':simulated_data, 'theta': prior_sample[i]} # added theta
+        output_dict = {'accept': accept, 'z':simulated_data, 'theta': prior_sample[i], 'statistics': temporary_stat} # added theta
         # seems more reasonable to add the theta at the end of function ...
         output_list.append(output_dict)
     
