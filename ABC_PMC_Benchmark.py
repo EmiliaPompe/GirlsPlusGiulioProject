@@ -3,7 +3,7 @@
 
 # In[1]:
 
-#get_ipython().magic(u'pylab inline')
+#get_ipython().magic('pylab inline')
 import numpy as np
 import scipy as sc
 import pandas as pd
@@ -51,22 +51,23 @@ def NormalSummary(data):
 data = np.random.normal(loc=0,scale=likelihood_sd,size=original_data_size)
 
 
-# In[15]:
+# In[3]:
 
-k = 2
-requested_sample_size = np.linspace(start=50,stop=250,num=2)
+k = 15
+requested_sample_size = np.linspace(start=50,stop=1000,num=20) #n=50,100,...,1000
 tolerance_seq = np.linspace(start=1, stop= 0.01, num=4) #T = 4
 
 
-# In[16]:
+# In[13]:
 
 ABC_benchmark = []
 
 for sample_size in requested_sample_size:
+    print("ABC - ",float(len(ABC_benchmark))/len(requested_sample_size)*100,"%")
     run_time_ABC = 0
     niter_ABC = 0
     times_for_iteration_ABC = 0
-    for rep in range(k):
+    for rep in range(k):       
         #Run ABC
         start_time = timeit.default_timer()
         ABC_run = ABC_sample(NormalPriorSampler, NormalLiklihoodSimulator, NormalSummary, tolerance_seq[-1], data , sample_size)
@@ -84,15 +85,17 @@ pickle.dump(ABC_benchmark, open( file_name, "wb" ) ) #save result in a file
 #You can load using:
 #test = pickle.load( open( "data/ABC_benchmark_k_2_tol_001.p", "rb" ) )
 
-print(pd.DataFrame(ABC_benchmark))
+#print(pd.DataFrame(ABC_benchmark))
+print("ABC - 100%")
 
 
 
-# In[18]:
+# In[14]:
 
 PMC_benchmark = []
 
 for sample_size in requested_sample_size:
+    print("PMC 1 - ",float(len(PMC_benchmark))/len(requested_sample_size)*100,"%")
     run_time_PMC = 0
     niter_PMC = 0
     times_for_iteration_PMC = 0
@@ -114,16 +117,18 @@ pickle.dump(PMC_benchmark, open( file_name, "wb" ) ) #save result in a file
 #You can load using:
 #test = pickle.load( open( "data/ABC_benchmark_k_2_tol_001.p", "rb" ) )
 
-print(pd.DataFrame(PMC_benchmark))
+#print(pd.DataFrame(PMC_benchmark))
+print("PMC - 100%")
 
 
-# In[19]:
+# In[15]:
 
 #PMC benchmark for different values of T but fixed n
 sample_size_seq = [100,250,500,1000]
 
 PMC_benchmark2 = []
 for sample_size in sample_size_seq:
+    print("PMC 2 - ",float(sample_size_seq.index(sample_size))/len(sample_size_seq)*100,"%")
     for T in range(2,11):
         tolerance_seq = np.linspace(start=1, stop= 0.01, num=T)
         run_time_PMC = 0
@@ -144,5 +149,11 @@ for sample_size in sample_size_seq:
 
 file_name = "data/PMC_benchmark2_k_"+str(k)+"_tol_"+str(tolerance_seq[-1])+"_num_"+str(len(sample_size_seq))+"_T_2_10.p"
 pickle.dump(PMC_benchmark, open( file_name, "wb" ) ) #save result in a file
-print(pd.DataFrame(PMC_benchmark2))
+#print(pd.DataFrame(PMC_benchmark2))
+print("PMC 2 - 100%")
+
+
+# In[ ]:
+
+print("DONE! :D")
 
