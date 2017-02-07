@@ -107,7 +107,7 @@ def ABC_PMC(priorFunction, priorSampler, likelihoodSimulator, summaryStatistics,
     temp = ABC_sample(priorSampler, likelihoodSimulator, summaryStatistics, epsilon_array[0], data , n)
     df = temp[0]
     niter = temp[1] #Number of iterations required for the initial step
-    weight_old = np.ones(n)*(1/n) #assign "basic" weights to the sampled parameters
+    weight_old = np.ones(n)*(1.0/n) #assign "basic" weights to the sampled parameters
     theta_old = df.theta
     sigma_squared = 2*weighted_variance(df.theta,weight_old) #Compute a weighted empirical variance of theta. Used as variance in the Gaussian kernel
     
