@@ -53,8 +53,8 @@ data = np.random.normal(loc=0,scale=likelihood_sd,size=original_data_size)
 
 # In[3]:
 
-k = 1
-requested_sample_size = np.linspace(start=50,stop=250,num=2) #n=50,100,...,1000
+k = 15
+requested_sample_size = np.linspace(start=50,stop=1000,num=20) #n=50,100,...,1000
 tolerance_seq = np.linspace(start=1, stop= 0.01, num=4) #T = 4
 
 
