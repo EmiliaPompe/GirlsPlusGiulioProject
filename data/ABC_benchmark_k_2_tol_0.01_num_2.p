@@ -21,7 +21,7 @@ NNNI-1
 I-1
 I0
 tp9
-bS'\x88\x88\x88\x88\xe2\x14\x92?'
+bS'L\xe5\x9dpF\x8a\xac?'
 p10
 tp11
 Rp12
@@ -35,15 +35,15 @@ tp15
 Rp16
 sS'run_time'
 p17
-F0.7602081298828125
+F2.6453410387039185
 sS'niter'
 p18
-I43026
+I47390
 sa(dp19
 g2
 g3
 (g7
-S'\xac q8/\xba\x91?'
+S'h\xd2\x1e\x83\xd7\xd7\xab?'
 p20
 tp21
 Rp22
@@ -55,7 +55,7 @@ p23
 tp24
 Rp25
 sg17
-F3.8975985050201416
+F12.013461351394653
 sg18
-I225077
+I220993
 sa.
