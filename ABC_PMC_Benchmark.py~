@@ -82,7 +82,7 @@ for sample_size in sample_size_seq:
         output_dict = {'T':T, 'sample_size': sample_size, 'run_time': run_time_PMC, 'niter':niter_PMC, 'times_1000_iter': times_for_iteration_PMC}
         PMC_benchmark2.append(output_dict)
 
-file_name = "data/Correct_PMC_benchmark2_k_"+str(k)+"_tol_"+str(tolerance_seq[-1])+"_num_"+str(len(sample_size_seq))+"_T_2_10.p"
+file_name = "data/PMC_benchmark2_k_"+str(k)+"_tol_"+str(tolerance_seq[-1])+"_num_"+str(len(sample_size_seq))+"_T_2_10.p"
 pickle.dump(PMC_benchmark2, open( file_name, "wb" ) ) #save result in a file
 #print(pd.DataFrame(PMC_benchmark2))
 print("PMC 2 - 100%")

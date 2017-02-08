@@ -57,7 +57,6 @@ def ABC_sample(priorSampler, likelihoodSimulator, summaryStatistics, epsilon, da
             output_list.append(output_dict)
             i = i+1
         else: accept = 0         
-        
         if (niter % 1000 == 0):
             iteration_time.append(timeit.default_timer() - start_time)
         
