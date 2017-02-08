@@ -27,7 +27,7 @@ from ABC_algorithm import ABC
 # In[2]:
 
 
-# In[11]:
+# In[3]:
 
 ######
 # set up for the g and k distribution
@@ -54,19 +54,15 @@ def GKLiklihoodSimulator(n, param):
 def GKSummary(data):
     return np.sort(data)
 
-data_gk = SimulateGK(25, [3, 1, 2, 0.5])
+
+data_gk = SimulateGK(100, [3, 1, 2, 0.5])
 
 
-# In[14]:
-
-
-# In[4]:
-
-# In[25]:
+# In[8]:
 
 ## TAR curve for g and k distribution
 epsilon_seq = np.linspace(start=0, stop=5000, num = 50)
-n = 5000
+n = 200
 k = 20
 counter = 0
 accepted_ratio = []
@@ -89,7 +85,7 @@ print("DONE :D")
 pickle.dump(output_list, open( "data/acceptance_rate_gk.p", "wb" ) )
 
 
-# In[26]:
+# In[9]:
 
 print(accepted_ratio)
 plt.plot(epsilon_seq, accepted_ratio, '-')
