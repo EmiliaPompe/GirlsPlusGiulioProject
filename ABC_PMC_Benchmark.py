@@ -53,7 +53,7 @@ data = np.random.normal(loc=0,scale=likelihood_sd,size=original_data_size)
 
 # In[3]:
 
-k = 15
+k = 5
 requested_sample_size = np.linspace(start=50,stop=1000,num=20) #n=50,100,...,1000
 tolerance_seq = np.linspace(start=1, stop= 0.01, num=4) #T = 4
 
@@ -64,7 +64,7 @@ sample_size_seq = [100,250,500,1000]
 PMC_benchmark2 = []
 for sample_size in sample_size_seq:
     print("PMC 2 - ",float(sample_size_seq.index(sample_size))/len(sample_size_seq)*100,"%")
-    for T in range(2,11):
+    for T in range(2,21):
         tolerance_seq = np.linspace(start=1, stop= 0.01, num=T)
         run_time_PMC = 0
         niter_PMC = 0
